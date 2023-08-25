@@ -1,18 +1,18 @@
 import { Router } from "express"
-import { getAllUsers, createUser, getUserById, deleteUserById, test } from "../Services/Users.js"
+import {
+    getAllUsers, createUser, getUserById, deleteUserById} from "../Services/Users.js"
+import { addNewProduct, deleteproductById, findProductById, getAllProducts } from "../Services/Products.js"
 
-const Route = Router()
+const RouterMan = Router()
 
-Route.get("/test", test)
+RouterMan.get("/Users", getAllUsers)
+RouterMan.post("/Users", createUser)
+RouterMan.get("/Users:email", getUserById)
+RouterMan.delete("/Users:email", deleteUserById)
 
-Route.get("/Users", getAllUsers)
-Route.post("/Users", createUser)
-Route.get("/Users:id", getUserById)
-Route.delete("/Users:id", deleteUserById)
+RouterMan.get("/Products", getAllProducts)
+RouterMan.post("/Products", addNewProduct)
+RouterMan.get("/Products:id", findProductById)
+RouterMan.delete("/Products:id", deleteproductById)
 
-Route.get("/Products", getAllUsers)
-Route.get("/Products", getUserById)
-Route.post("/Products", createUser)
-Route.delete("/Products", deleteUserById)
-
-export default Route
+export default RouterMan

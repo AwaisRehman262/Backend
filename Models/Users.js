@@ -7,6 +7,4 @@ const userSchema = new Schema({
     phone: { type: String, require: true }
 })
 
-const UserModel = model("user", userSchema)
-
-export default UserModel
+export const UserModel = model("user", userSchema)

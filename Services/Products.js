@@ -1,8 +1,8 @@
-import { ProductModel } from "../Models/Products"
+import { ProductModel } from "../Models/Products.js"
 
 export const getAllProducts = async (req, res) => {
-  const users = await ProductModel.find().select("-password")
-  res.status(200).send({ data: users })
+  const products = await ProductModel.find()
+  res.status(200).send({ data: products })
 }
 
 export const addNewProduct = async (req, res) => {

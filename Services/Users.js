@@ -1,9 +1,4 @@
-import UserModel from "../Models/Users.js"
-
-export const test = async (req, res) => {
-    
-    res.send("test")
-}
+import { UserModel } from "../Models/Users.js"
 
 export const getAllUsers = async (req, res) => {
     const users = await UserModel.find().select("-password")
@@ -18,13 +13,13 @@ export const createUser = async (req, res) => {
 }
 
 export const getUserById = async (req, res) => {
-    const id = req.params.id
+    const id = req.params.email
     const user = await UserModel.findById(id)
     res.status(200).send({ data: user })
 }
 
 export const deleteUserById = async (req, res) => {
-    const id = req.params.id
+    const id = req.params.email
     const user = await UserModel.findByIdAndRemove(id)
     const users = await UserModel.find()
     res.status(200).send({ data: users })
